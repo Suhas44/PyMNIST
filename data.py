@@ -17,7 +17,23 @@ def download_dataset():
         transform=ToTensor()
     )
 
-def get_dataloaders(training_data, test_data):
+def get_training_dataloader():
+    training_data = datasets.FashionMNIST(
+        root="data",
+        train=True,
+        download=False,
+        transform=ToTensor()
+    )
+
     training_dataloader = DataLoader(training_data, batch_size=64, shuffle=True)
+    return training_dataloader
+
+def get_test_dataloader():
+    test_data = datasets.FashionMNIST(
+        root="data",
+        train=False,
+        download=False,
+        transform=ToTensor()
+    )
     test_dataloader = DataLoader(test_data, batch_size=64, shuffle=True)
-    return training_dataloader, test_dataloader
+    return test_dataloader
