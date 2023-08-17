@@ -38,5 +38,5 @@ def get_test_dataloader():
         download=False,
         transform=ToTensor()
     )
-    test_dataloader = DataLoader(test_data, batch_size=64, shuffle=True)
+    test_dataloader = DataLoader(test_data, batch_size=60000, shuffle=True)
     return test_dataloader

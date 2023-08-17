@@ -45,7 +45,7 @@ for epoch in range(n_epochs):
     train_model(epoch=epoch, model=MLP, training_data=training_dataloader, optimizer=optimizer)
     validate_model(dataloader=validation_dataloader, model=MLP)
 
-torch.save(MLP, 'MLP.pth')
+torch.save(MLP.state.dict(), 'MLP.pth')
 
 n_epochs = 10
 CNN = ConvolutionalNeuralNetwork(device).to(device)
@@ -56,4 +56,4 @@ for epoch in range(n_epochs):
     train_model(epoch=epoch, model=CNN, training_data=training_dataloader, optimizer=optimizer)
     validate_model(dataloader=validation_dataloader, model=CNN)
 
-torch.save(CNN, 'CNN.pth')
+torch.save(CNN.state_dict(), 'CNN.pth')
